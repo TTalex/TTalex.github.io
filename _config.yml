@@ -12,7 +12,7 @@ title_separator          : "-"
 name                     : "TTalex"
 description              : "Code answers to everyday questions."
 url                      : "https://TTalex.github.io"
-baseurl                  : "/blog"
+baseurl                  : 
 gh_repo                  :
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 # breadcrumbs            : false # true, false (default)
