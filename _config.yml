@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-locale                   : "en-EN"
+locale                   : "en-US"
 title                    : "Sensk"
 title_separator          : "-"
 name                     : "TTalex"
@@ -205,15 +205,3 @@ compress_html:
   ignore:
     envs: development
 
-defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
