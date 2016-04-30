@@ -1,4 +1,6 @@
 # main links links
 main:
   - title: "About"
-    url: https://TTalex.github.io/about/
+    url: /about/
+  - title: "Archive"
+    url: /archive/
