@@ -22,10 +22,11 @@ the technologies used, the issues I've encountered and the solutions I came up w
 keep this blog light-hearted and instructive for any of us Senskers.
 
 Every post will be formatted as follow:
- 1. The story highlighting the need
- 2. The solution (and issues encountered)
- 3. A link to the complete code, for us lazy copy-pasters
- 4. A list of all the sources that help me build the solution, from docs to blogs to scientific articles (and books ... once in a while ... maybe)
+
+1. The story highlighting the need
+2. The solution (and issues encountered)
+3. A link to the complete code, for us lazy copy-pasters
+4. A list of all the sources that help me build the solution, from docs to blogs to scientific articles (and books ... once in a while ... maybe)
  
 Anyway, I hope you will enjoy it as much as I do making it and remember that I'm very open to any
 comments or suggestions ! Our goal is to learn, and it's impossible without mistakes and feedback.
