@@ -4,4 +4,28 @@ title: "About"
 permalink: /about/
 author_profile: true
 ---
-Hello Worldtryty
+Hey Senskers !
+
+Welcome to my humble blog, Alex here !
+
+As a typical geek, I'm consistently starting small and (sometimes) fun internet projects. Most of 
+these come from real life needs that I or people around me face. These projects are often a good way 
+for me to solve these issues while learning or perfecting a software technology. Moreover, creating 
+prototypes that are actually usable, used and useful for someone fills my entrepreuneurial cravings.
+
+At the time I'm writing these words, I have been doing that for a few years now and I do believe
+that keeping track of all the solutions and hurdles I come across is a smart thing to do, for me and
+let's hope also for someone else out there.
+
+This blog will then consists of my ramblings over these projects, including some of my insights on 
+the technologies used, the issues I've encountered and the solutions I came up with. My aim is to 
+keep this blog light-hearted and instructive for any of us Senskers.
+
+Every post will be formatted as follow:
+ 1. The story highlighting the need
+ 2. The solution (and issues encountered)
+ 3. A link to the complete code, for us lazy copy-pasters
+ 4. A list of all the sources that help me build the solution, from docs to blogs to scientific articles (and books ... once in a while ... maybe)
+ 
+Anyway, I hope you will enjoy it as much as I do making it and remember that I'm very open to any
+comments or suggestions ! Our goal is to learn, and it's impossible without mistakes and feedback.
