@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Sensk"
 title_separator          : "-"
 name                     : "TTalex"
-description              : "Code answers to everyday questions."
+description              : "Code answers to everyday questions"
 url                      : "https://TTalex.github.io"
 baseurl                  : 
 gh_repo                  :
@@ -62,8 +62,8 @@ google_ad_slot           :
 # Site Author
 author:
   name             : "Alex"
-  avatar           : "bio-photo.jpg"
-  bio              : "Software Engineer, Entrepreuneur, Internet enthousiast."
+  avatar           : "https://avatars1.githubusercontent.com/u/7023229?v=3&s=460"
+  bio              : "Software Engineer, Entrepreneur, Internet enthusiast."
   location         : "Paris"
   email            :
   uri              :
