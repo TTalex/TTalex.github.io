@@ -129,7 +129,7 @@ app.controller('mainController', ['$scope', 'mainService', '$routeParams', funct
 }]);
 ```
 
-```html
+```liquid
 <!-- views/main.html -->
 <div id="main">
 <h1>Wow such great house</h1>
@@ -139,7 +139,7 @@ app.controller('mainController', ['$scope', 'mainService', '$routeParams', funct
 
 The **js/services/mainService.js** used by our controller consists of a very basic HTTP get request to a remote API (or a gist file in our example).
 
-````javascript
+```javascript
 // js/services/mainService.js
 app.factory('mainService', ['$http', function($http) {
   return $http.get('https://gist.githubusercontent.com/TTalex/f732532f61c900827078c318a1622f56/raw/f1beca357308ff41224714da280470679c64b519/sample-data.json');
@@ -318,7 +318,7 @@ app.controller('calibrationController', ['$scope', '$routeParams', function($sco
 }]);
 ```
 
-```html
+```liquid
 <!-- views/calibration.html -->
 <div>
     <div>
