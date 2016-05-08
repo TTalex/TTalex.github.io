@@ -2,8 +2,8 @@
 layout: single
 title: Lost indoors
 header:
- image: images/Lost-indoors/header.jpg
- teaser: images/Lost-indoors/header.jpg
+ image: Lost-indoors/header.jpg
+ teaser: Lost-indoors/header.jpg
 categories: [Code]
 Tags: [Javascript, html, svg, d3js, angular]
 excerpt: Visualization of indoor movement using d3.js and angular.js
@@ -22,7 +22,7 @@ The goal is to make an animated svg image, here's the final result.
 
 ![image-center](/images/Lost-indoors/demogif.gif){: .align-center}
 
-## Setting up an angular environment
+### Setting up an angular environment
 
 First of all, let's set up a very simple angular project, with routing and a service reaching a remote API. The file structure should look as follows.
 
@@ -54,8 +54,8 @@ First of all, let's set up a very simple angular project, with routing and a ser
 
 The **index.html** file loads up d3, Angular and the routing library. It also sets up a div to hold our views with ng-view.
 
-Remember to add Controllers, Services and Directives scripts in here as well.
-{: .notice}
+**Remember** to add Controllers, Services and Directives scripts in here as well.
+{: .notice--info}
 
 ```html
 <!-- index.html -->
@@ -137,7 +137,8 @@ app.controller('mainController', ['$scope', 'mainService', '$routeParams', funct
 ```
 
 The **js/services/mainService.js** used by our controller consists of a very basic HTTP get request to a remote API (or a gist file in our example).
-```javascript
+
+````javascript
 // js/services/mainService.js
 app.factory('mainService', ['$http', function($http) {
   return $http.get('https://gist.githubusercontent.com/TTalex/f732532f61c900827078c318a1622f56/raw/f1beca357308ff41224714da280470679c64b519/sample-data.json');
@@ -145,6 +146,7 @@ app.factory('mainService', ['$http', function($http) {
 ```
 
 Finaly a **css/main.css** file is there to beutify everything.
+
 ```css
 /* css/main.css */
 #main{
@@ -163,14 +165,14 @@ path{
 }
 ```
 
-## Building the d3.js directive
+### Building the d3.js directive
 
 Now that our angular project is all set up and ready to serve, it's time to build and integrate our d3.js directive.
 
 As [Brian Ford](http://briantford.com/blog/angular-d3) mentions in his blog, building directives from d3.js code isn't a very hard task. It's only a matter of copying and pasting and replacing the original DOM selector.
 
 This code is very much inspired by the [Stroke Dash Interpolation code by Mbostock](http://bl.ocks.org/mbostock/1705868), the creator of D3.js. I highly encourage you Senskers out there to compare both if you want to learn how to adapt any D3js code to angular directives.
-{: .notice}
+{: .notice--info}
 
 First let's create the **js/directives/floormapDirective.js** file. In addition to the code provided by the Stroke Dash Interpolation example, we're also loading an image that will act as a background plan for our floor. Adding the image source as a scope for our directive could be an interesting improvement.
 
@@ -271,7 +273,7 @@ Now we can add the directive to our template file **views/main.html**.
 
 TADA ! Everything should now be working fine, animations included.
 
-## Bonus: Calibration
+### Bonus: Calibration
 
 Hang on a minute, are you really expecting us Senskers to manually find out all coordinates defining indoor positions for our positionmap ?!
 {: .notice--warning}
@@ -279,6 +281,7 @@ Hang on a minute, are you really expecting us Senskers to manually find out all 
 That would be insane, wouldn't it ? Let's create a webpage that will help generating this positionmap with simple clicks on an image. We'll call it the calibration page.
 
 First, let's add a route to our **js/app.js** file, right before the otherwise route.
+
 ```javascript
 // js/app.js
 .when('/calibration', {
@@ -287,7 +290,7 @@ First, let's add a route to our **js/app.js** file, right before the otherwise r
 })
 ```
 
-Then we create the **js/controllers/calibrationController.js** and its associated **view/calibration.html**. First the user presses a button to start calibrating, then clicks on the image for each position he wants to register. This triggers the input function with an associated JQuery event (thanks to $event) from which we fetch the mouse positions and image offsets. Once done, the user can copy the generated positionmap.
+Then we create the **js/controllers/calibrationController.js** and its associated **view/calibration.html**. First the user presses a button to start calibrating, then clicks on the image for each position he wants to register. This triggers the input function with an associated [JQuery event](http://api.jquery.com/category/events/event-object/) (thanks to $event) from which we fetch the mouse positions and image offsets. Once done, the user can copy the generated positionmap.
 
 ```javascript
 // js/controllers/calibrationController.js
@@ -330,16 +333,17 @@ app.controller('calibrationController', ['$scope', '$routeParams', function($sco
 
 There we go, our application is completed, it should be noted that there should be more error management throughout the code, especially around the service call. For example, the program fails when a position identifier fetched from our API does not match a positionmap element. However, I'm sure Senskers are smart enough to add and improve on many points, and I would be pleased to hear about them !
 
+
 Thanks for reading this one !
 
 # The Code
-https://github.com/TTalex/angular-d3js-indoor-map
+[https://github.com/TTalex/angular-d3js-indoor-map](https://github.com/TTalex/angular-d3js-indoor-map)
 
 # The Sources
 * [Indoor positioning system Wiki](https://en.wikipedia.org/wiki/Indoor_positioning_system)
 * [Xkcd comics editor](http://cmx.io/)
-* https://angularjs.org/
-* https://d3js.org/
+* [Angularjs](https://angularjs.org/)
+* [D3js](https://d3js.org/)
 * [D3-floorplan, a project close to this one by Dciarletta](https://dciarletta.github.io/d3-floorplan/)
 * [Using d3.js in angular with directives by Brian Ford](http://briantford.com/blog/angular-d3)
 * [D3js Stroke Dash Interpolation by Mbostock](http://bl.ocks.org/mbostock/1705868)
