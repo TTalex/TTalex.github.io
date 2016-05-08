@@ -129,13 +129,15 @@ app.controller('mainController', ['$scope', 'mainService', '$routeParams', funct
 }]);
 ```
 
-```liquid
+{% raw %}
+```html
 <!-- views/main.html -->
 <div id="main">
 <h1>Wow such great house</h1>
 {{ data }}
 </div>
 ```
+{% endraw %}
 
 The **js/services/mainService.js** used by our controller consists of a very basic HTTP get request to a remote API (or a gist file in our example).
 
@@ -318,7 +320,8 @@ app.controller('calibrationController', ['$scope', '$routeParams', function($sco
 }]);
 ```
 
-```liquid
+{% raw %}
+```html
 <!-- views/calibration.html -->
 <div>
     <div>
@@ -331,6 +334,7 @@ app.controller('calibrationController', ['$scope', '$routeParams', function($sco
     </div>
 </div>
 ```
+{% endraw %}
 
 There we go, our application is completed, it should be noted that there should be more error management throughout the code, especially around the service call. For example, the program fails when a position identifier fetched from our API does not match a positionmap element. However, I'm sure Senskers are smart enough to add and improve on many points, and I would be pleased to hear about them !
 
