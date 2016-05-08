@@ -26,7 +26,7 @@ The goal is to make an animated svg image, here's the final result.
 
 First of all, let's set up a very simple angular project, with routing and a service reaching a remote API. The file structure should look as follows.
 
-```
+```bash
 .
 |   index.html
 |   
@@ -108,6 +108,7 @@ app.config(function ($routeProvider) {
 ```
 
 Let's define our mainController in **js/controllers/mainController.js** and its associated view template in **views/main.html**.
+
  * **positionmap** is an hard coded list of coordinates [x, y] defining indoor positions such as rooms.
  * We fetch **data** from our mainService to get the ordered list of positions the path takes
  * We feed information to the view using **$scope.data** containing a list of points to follow
