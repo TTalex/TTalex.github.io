@@ -5,20 +5,20 @@ header:
  image: Blue-hair-and-black-rims/header.jpg
  teaser: Blue-hair-and-black-rims/header.jpg
 categories: [Code]
-Tags: [Javascript, Jquery, html, svg filters, css, photoshop, images]
+Tags: [Javascript, JQuery, html, svg filters, css, photoshop, images]
 excerpt: Dynamically changing colors of a part of a picture, using jquery and svg filters
-published: false
+published: true
 ---
 Hey Senskers !
 
 # The story
 A little while ago, while I was fiending my favorite sub-reddits as I often did in my (now missed) extensive spare time, I ran into one of the most common questions of /r/picrequest. For those unfamiliar with this sub-reddit, people come in and ask for photo edits to a community of photoshop "experts" osciliating between having fun and not realizing that they should be paid for their work. Anyway, it was one of the classical "please change the color of this" type of request.
 
-<img src="Blue-hair-and-black-rims/request.jpg"></img>
+![image-center](/images/Blue-hair-and-black-rims/request.jpg){: .align-center}
 
 What poor /u/Kuri619 ignored back then was how easy this is to do for a photoshop amateur and not only could the color be changed to black, but it could be done to any color ... within the software itself.
 
-<img src="Blue-hair-and-black-rims/photoshop.gif"></img>
+![image-center](/images/Blue-hair-and-black-rims/photoshop.gif){: .align-center}
 
 What if I could reproduce this behavior within a web page, for all Kuris out there to use ? The first thing I delivered was an html snippet, very not user friendly, where you had to manually change rgb values out of a matrix ... a mess, but the guy was quite happy with it.
 
@@ -29,11 +29,12 @@ The need has been identified, let's get building !
 # The solution
 So we're building a webpage, here's how the final page looks. Not too fancy and straight to the point.
 
-<img src="Blue-hair-and-black-rims/demo.jpg"></img>
+![image-center](/images/Blue-hair-and-black-rims/demo.jpg){: .align-center}
 
 The user feeds in two images of similar sizes, one is the image we want to edit, that will act as a background, the other contains only the parts we want to color with a transparent background (only the rims for example).
 
 Using jquery, the link inputs are read when changed, and the images displayed.
+
 ```html
 <input type="text" style="float:right" id="bgimg" value="http://i.imgur.com/LIKTzdo.jpg"/><br />
 <input type="text" style="float:right" id="cutout" value="http://i.imgur.com/T8xJfrX.png"/>
@@ -45,6 +46,7 @@ Using jquery, the link inputs are read when changed, and the images displayed.
     </g>
 </svg>
 ```
+
 ```javascript
 $("#bgimg").on("change paste keyup", function(){
 $("#dbg").attr("xlink:href", escapeHtml($(this).val()));
@@ -70,6 +72,7 @@ function escapeHtml(text){
 ```
 
 The second thing are the usage of svg filters on the cutout image, overlapping the background one. Filters using feColorMatrix are pretty simple to use once you get the gist of it. The four lines define red, green, blue and alpha chanels to apply to each of the image pixels. In order to apply coloration to any image, including very dark ones, the luminosity needs to be boosted, this is what the "whity" filter does. The second filter, "color", leaves the image unchanged for now.
+
 ```html
 <svg  viewBox="0 0 1 1" style="height:80%; position: fixed; bottom:0;">
     <defs>
@@ -97,9 +100,11 @@ The second thing are the usage of svg filters on the cutout image, overlapping t
 </svg>
 ```
 
-Now that the image modifications are set up, we need a color selector. I opted to go with a premade one, called <a href="https://github.com/bgrins/spectrum">spectrum</a> written in javascript. It was only a matter of placing it on the webpage and connecting to our "color" filter matrix.
+Now that the image modifications are set up, we need a color selector. I opted to go with a premade one, called [spectrum](https://github.com/bgrins/spectrum) written in javascript. It was only a matter of placing it on the webpage and connecting to our "color" filter matrix.
 
 Note that only the diagonal values of the matrix are changed in order to affect the channels, filters could be used for way more effect that coloration using the other dimentions.
+{: .notice--info}
+
 ```html
 <div id="flat">
 </div>
@@ -118,10 +123,38 @@ Note that only the diagonal values of the matrix are changed in order to affect 
 </script>
 ```
 
+### Bonus
+In order to ease usage even more for users, we could fill the image fields prehemptively. To do so without hardcoding the links each time, we can use query parameters. The following javascript code reads and decodes two query parameters "bg" and "cut", respectively for links to the background image and the cutout.
+
+```javascript
+<script type="text/javascript">
+    var urlParams;
+    (window.onpopstate = function () {
+        var match,
+            pl     = /\+/g,  // Regex for replacing addition symbol with a space
+            search = /([^&=]+)=?([^&]*)/g,
+            decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+            query  = window.location.search.substring(1);
+        urlParams = {};
+        while (match = search.exec(query))
+            urlParams[decode(match[1])] = decode(match[2]);
+    })();
+    if("bg" in urlParams){
+        $("#dbg").attr("xlink:href", escapeHtml(urlParams["bg"]));
+        $("#bgimg").attr("value", escapeHtml(urlParams["bg"]));
+    }
+    if("cut" in urlParams){
+        $("#dcut").attr("xlink:href", escapeHtml(urlParams["cut"]));
+        $("#cutout").attr("value", escapeHtml(urlParams["cut"]));
+    }
+</script>
+```
+
 # The Code
-https://github.com/TTalex/color-changer
+[https://github.com/TTalex/color-changer](https://github.com/TTalex/color-changer)
+
 # The Sources
-* Spectrum for color selection using javascript: <a href="https://github.com/bgrins/spectrum">https://github.com/bgrins/spectrum</a>
-* <a href="https://jquery.com/">The infamous JQuery</a>
-* <a href="https://docs.webplatform.org/wiki/svg/tutorials/smarter_svg_filters">More info on svg filters</a>
-* <a href="https://www.reddit.com/r/picrequests">/r/picrequests on reddit</a>
+* [Spectrum for color selection using javascript](https://github.com/bgrins/spectrum)
+* [The infamous JQuery](https://jquery.com/)
+* [More info on svg filters](https://docs.webplatform.org/wiki/svg/tutorials/smarter_svg_filters)
+* [/r/picrequests on reddit](https://www.reddit.com/r/picrequests)
