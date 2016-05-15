@@ -5,18 +5,18 @@ header:
  image: Blue-hair-and-black-rims/header.jpg
  teaser: Blue-hair-and-black-rims/header.jpg
 categories: [Code]
-Tags: [Javascript, JQuery, html, svg filters, css, photoshop, images]
+Tags: [Javascript, JQuery, html, svg filters, css, Photoshop, images]
 excerpt: Dynamically changing colors of a part of a picture, using jquery and svg filters
 published: true
 ---
 Hey Senskers !
 
 # The story
-A little while ago, while I was fiending my favorite sub-reddits as I often did in my (now missed) extensive spare time, I ran into one of the most common questions of /r/picrequest. For those unfamiliar with this sub-reddit, people come in and ask for photo edits to a community of photoshop "experts" osciliating between having fun and not realizing that they should be paid for their work. Anyway, it was one of the classical "please change the color of this" type of request.
+A little while ago, while I was fiending my favorite sub-reddits as I often did in my (now missed) extensive spare time, I ran into one of the most common questions of /r/picrequest. For those unfamiliar with this sub-reddit, people come in and ask for photo edits to a community of Photoshop "experts" oscillating between having fun and not realizing that they should be paid for their work. Anyway, it was one of the classical "please change the color of this" type of request.
 
 ![image-center](/images/Blue-hair-and-black-rims/request.jpg){: .align-center}
 
-What poor /u/Kuri619 ignored back then was how easy this is to do for a photoshop amateur and not only could the color be changed to black, but it could be done to any color ... within the software itself.
+What poor /u/Kuri619 ignored back then was how easy this is to do for a Photoshop amateur and not only could the color be changed to black, but it could be done to any color ... within the software itself.
 
 ![image-center](/images/Blue-hair-and-black-rims/photoshop.gif){: .align-center}
 
@@ -56,7 +56,7 @@ $("#dcut").attr("xlink:href", escapeHtml($(this).val()));
 });
 ```
 
-The first thing that can be noted is that every user input is escaped using the escapeHtml function, this is maily done so that the page doesn't break when missused.
+The first thing that can be noted is that every user input is escaped using the escapeHtml function, this is mainly done so that the page doesn't break when misused.
 
 ```javascript
 function escapeHtml(text){
@@ -71,7 +71,7 @@ function escapeHtml(text){
 }
 ```
 
-The second thing are the usage of svg filters on the cutout image, overlapping the background one. Filters using feColorMatrix are pretty simple to use once you get the gist of it. The four lines define red, green, blue and alpha chanels to apply to each of the image pixels. In order to apply coloration to any image, including very dark ones, the luminosity needs to be boosted, this is what the "whity" filter does. The second filter, "color", leaves the image unchanged for now.
+The second thing are the usage of svg filters on the cutout image, overlapping the background one. Filters using feColorMatrix are pretty simple to use once you get the gist of it. The four lines define red, green, blue and alpha channels to apply to each of the image pixels. In order to apply coloration to any image, including very dark ones, the luminosity needs to be boosted, this is what the "whity" filter does. The second filter, "color", leaves the image unchanged for now.
 
 ```html
 <svg  viewBox="0 0 1 1" style="height:80%; position: fixed; bottom:0;">
@@ -102,7 +102,7 @@ The second thing are the usage of svg filters on the cutout image, overlapping t
 
 Now that the image modifications are set up, we need a color selector. I opted to go with a premade one, called [spectrum](https://github.com/bgrins/spectrum) written in javascript. It was only a matter of placing it on the webpage and connecting to our "color" filter matrix.
 
-Note that only the diagonal values of the matrix are changed in order to affect the channels, filters could be used for way more effect that coloration using the other dimentions.
+Note that only the diagonal values of the matrix are changed in order to affect the channels, filters could be used for way more effect that coloration using the other dimensions.
 {: .notice--info}
 
 ```html
@@ -124,7 +124,7 @@ Note that only the diagonal values of the matrix are changed in order to affect 
 ```
 
 ### Bonus
-In order to ease usage even more for users, we could fill the image fields prehemptively. To do so without hardcoding the links each time, we can use query parameters. The following javascript code reads and decodes two query parameters "bg" and "cut", respectively for links to the background image and the cutout.
+In order to ease usage even more for users, we could fill the image fields preemptively. To do so without hard coding the links each time, we can use query parameters. The following javascript code reads and decodes two query parameters "bg" and "cut", respectively for links to the background image and the cutout.
 
 ```javascript
 <script type="text/javascript">
