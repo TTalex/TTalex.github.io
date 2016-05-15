@@ -27,7 +27,7 @@ layout: default
       {% unless page.header.overlay_color or page.header.overlay_image %}
         <header>
           <h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
-            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {{{ page.date | date: "%B %d, %Y" }}</p>
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ page.date | date: "%D" }}</p>
         </header>
       {% endunless %}
 
