@@ -93,7 +93,7 @@ rails server --binding=server_public_IP
 Since our database will be static and seeded, it is not necessary to fully describe the Film model, the **app/models/film.rb** file should however still be present.
 
 ```ruby
-//app/models/film.rb
+#app/models/film.rb
 class Film < ActiveRecord::Base
 end
 ```
@@ -162,7 +162,7 @@ end
 Once our controller is created, we need to create routes in **config/routes.rb**.
 
 ```ruby
-//config/routes.rb
+#config/routes.rb
 Rails.application.routes.draw do
     resources :films
       get '/' => 'films#graph'
